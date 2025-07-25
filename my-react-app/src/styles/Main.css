@@ -1,0 +1,47 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background-color: var(--dark-card);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.header-logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logout-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary-blue);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #2563eb;
+}
+
+.app-content {
+  flex-grow: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-footer {
+  background-color: var(--dark-card);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--gray-text);
+}
