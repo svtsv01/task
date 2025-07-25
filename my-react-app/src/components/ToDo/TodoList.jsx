@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { fetchTodosByUserId, addTodo } from '../../api/toDoService';
+import { fetchTodosByUserId, addTodo, updateTodoStatus, deleteTodo } from '../../api/todoService';
 import TodoItem from './TodoItem';
 import Pagination from './Pagination';
 import AddTodoForm from './AddTodoForm';
@@ -50,6 +50,30 @@ const TodoList = () => {
     }
   };
 
+
+  const handleToggleComplete = async (todoId, currentStatus) => {
+    try {
+      await updateTodoStatus(todoId, !currentStatus);
+      setAllTodos(prevTodos =>
+        prevTodos.map(todo =>
+          todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+        )
+      );
+    } catch (err) {
+      setError("Failed to update task status. Please try again.");
+    }
+  };
+
+  const handleDeleteTodo = async (todoId) => {
+    try {
+      await deleteTodo(todoId);
+
+      setAllTodos(prevTodos => prevTodos.filter(todo => todo.id !== todoId));
+    } catch (err) {
+      setError("Failed to delete task. Please try again.");
+    }
+  };
+
   const sortedTodos = useMemo(() => {
     return [...allTodos].sort((a, b) => {
       if (sortBy === 'alpha') {
@@ -79,14 +103,28 @@ const TodoList = () => {
       <h2 className="todo-section-header">Pending Tasks</h2>
       <div className="todo-grid">
         {pendingTodos.length > 0 ? (
-          pendingTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
+          pendingTodos.map((todo) => (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              onToggleComplete={handleToggleComplete}
+              onDelete={handleDeleteTodo}
+            />
+          ))
         ) : <p>No pending tasks on this page.</p>}
       </div>
       
       <h2 className="todo-section-header"> Completed Tasks</h2>
       <div className="todo-grid">
-        {completedTodos.length > 0 ? (
-          completedTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
+         {completedTodos.length > 0 ? (
+          completedTodos.map((todo) => (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              onToggleComplete={handleToggleComplete}
+              onDelete={handleDeleteTodo}
+            />
+          ))
         ) : <p>No completed tasks on this page.</p>}
       </div>
 

@@ -8,7 +8,6 @@ const StatisticsWidget = ({ todos }) => {
 
   const completedCount = todos.filter(t => t.completed).length;
   const totalCount = todos.length;
-  // Calculate the single percentage we want to display
   const completedPercentage = Math.round((completedCount / totalCount) * 100);
 
   const chartData = [
@@ -23,11 +22,11 @@ const StatisticsWidget = ({ todos }) => {
         <div className="pie-chart-container">
           <PieChart
             data={chartData}
-            lineWidth={40} // Increased for better visual balance
+            lineWidth={40} 
             animate
-            // We removed the 'label' props from here
+
           />
-          {/* This is our new, custom center label */}
+
           <div className="chart-center-label">
             <strong>{`${completedPercentage}%`}</strong>
             <span>Done</span>
