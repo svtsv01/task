@@ -7,7 +7,7 @@ export const fetchTodosByUserId = async (userId, limit = 10, skip = 0) => {
     throw new Error("User ID is required to fetch todos.");
   }
   console.log(userId)
-  const response = await fetch(`https://dummyjson.com/todos`);
+  const response = await fetch(`https://dummyjson.com/todos?limit=0&skip=0`);
   const data = await response.json();
 
   if (!response.ok) {
