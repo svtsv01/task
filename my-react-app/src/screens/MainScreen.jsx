@@ -10,8 +10,7 @@ const MainScreen = () => {
     <div className="main-layout">
       <Header />
       <main className="app-content">
-        <h1>Welcome, {user?.firstName || 'User'}!</h1>
-        <p>Your to-do list will be displayed here.</p>
+     
       </main>
       <Footer />
     </div>
