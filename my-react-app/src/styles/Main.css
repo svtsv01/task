@@ -214,3 +214,72 @@
   color: white;
   font-weight: 600;
 }
+
+.stats-widget {
+  background-color: var(--dark-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stats-title {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.stats-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.pie-chart-container {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.chart-center-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.chart-center-label strong {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--light-text);
+}
+
+.chart-center-label span {
+  font-size: 0.8rem;
+  color: var(--gray-text);
+  text-transform: uppercase;
+}
+
+.stats-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+}
+
+.legend-color-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}

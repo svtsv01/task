@@ -4,6 +4,7 @@ import TodoItem from './TodoItem';
 import Pagination from './Pagination';
 import AddTodoForm from './AddTodoForm';
 import SortControls from './SortControls';
+import StatisticsWidget from './StatisticsWidget';
 
 const TodoList = () => {
   const [allTodos, setAllTodos] = useState([]);
@@ -90,6 +91,8 @@ const TodoList = () => {
       </div>
 
       <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+
+      <StatisticsWidget todos={allTodos} /> 
     </div>
   );
 };
