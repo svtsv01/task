@@ -4,7 +4,7 @@ import {
   addTodo,
   updateTodoStatus,
   deleteTodo,
-} from './toDoService'; 
+} from '../src/api/toDoService'; 
 
 beforeEach(() => {
   global.fetch = vi.fn();

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { validatePassword } from './validate';
+import { validatePassword } from '../src/components/Auth/validate';
 
 describe('validatePassword', () => {
   it('should return null for a valid password', () => {

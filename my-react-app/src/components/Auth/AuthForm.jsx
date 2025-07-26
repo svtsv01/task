@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png';
+import logo from '../../../public/assets/logo.png';
 import SocialLogin from './SocialLogin';
 import '../../styles/Auth.css';
 

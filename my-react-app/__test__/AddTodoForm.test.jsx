@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import AddTodoForm from './AddTodoForm';
+import AddTodoForm from '../src/components/ToDo/AddTodoForm';
 
 describe('AddTodoForm', () => {
   it('should call onAddTodo with the input text when the form is submitted', () => {

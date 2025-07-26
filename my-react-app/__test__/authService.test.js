@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { loginUser, registerUser } from './authService';
+import { loginUser, registerUser } from '../src/api/authService';
 
 beforeEach(() => {
   global.fetch = vi.fn();

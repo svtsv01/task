@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { useGreeting } from './greetings';
+import { useGreeting } from '../src/components/utils/greetings';
 
 const localStorageMock = (() => {
   let store = {};
