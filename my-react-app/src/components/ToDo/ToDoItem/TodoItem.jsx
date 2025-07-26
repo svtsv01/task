@@ -1,6 +1,6 @@
 import React from 'react';
 import { CheckCircle, XCircle, Trash2, Undo2 } from 'lucide-react';
-import '../../styles/Main.css';
+import '../../../styles/Main.css';
 
 const TodoItem = ({ todo, onToggleComplete, onDelete }) => {
   const cardClass = todo.completed ? 'todo-card completed' : 'todo-card';

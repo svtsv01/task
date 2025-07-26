@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { fetchTodosByUserId, addTodo, updateTodoStatus, deleteTodo } from '../../api/todoService';
-import TodoItem from './TodoItem';
+import { fetchTodosByUserId, addTodo, updateTodoStatus, deleteTodo } from '../../api/toDoService';
+import TodoItem from './ToDoItem/TodoItem';
 import Pagination from './Pagination';
 import AddTodoForm from './AddTodoForm';
 import SortControls from './SortControls';
