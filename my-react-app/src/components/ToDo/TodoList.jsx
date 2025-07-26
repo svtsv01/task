@@ -52,6 +52,13 @@ const TodoList = () => {
 
 
   const handleToggleComplete = async (todoId, currentStatus) => {
+    if (todoId > 150) {
+      setAllTodos(prevTodos =>
+        prevTodos.map(todo =>
+          todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+        )
+      );return; }
+    
     try {
       await updateTodoStatus(todoId, !currentStatus);
       setAllTodos(prevTodos =>
@@ -65,9 +72,14 @@ const TodoList = () => {
   };
 
   const handleDeleteTodo = async (todoId) => {
+    
+    if (todoId > 150) {
+      setAllTodos(prevTodos => prevTodos.filter(todo => todo.id !== todoId));
+      return; 
+    }
+    
     try {
       await deleteTodo(todoId);
-
       setAllTodos(prevTodos => prevTodos.filter(todo => todo.id !== todoId));
     } catch (err) {
       setError("Failed to delete task. Please try again.");
