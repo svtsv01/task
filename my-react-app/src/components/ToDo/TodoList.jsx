@@ -44,7 +44,10 @@ const TodoList = () => {
     if (!userId) return;
     try {
       const newTodo = await addTodo(todoText, userId);
-      setAllTodos(prevTodos => [newTodo, ...prevTodos]);
+      setAllTodos(prevTodos => {
+        const updatedTodos = [newTodo, ...prevTodos];
+        return updatedTodos;
+      });
     } catch (err) {
       setError("Failed to add task. Please try again.");
     }
@@ -102,7 +105,7 @@ const TodoList = () => {
 
   const pendingTodos = paginatedTodos.filter(todo => !todo.completed);
   const completedTodos = paginatedTodos.filter(todo => todo.completed);
-  const totalPages = Math.ceil(allTodos.length / TODOS_PER_PAGE);
+  const totalPages = Math.max(1, Math.ceil(allTodos.length / TODOS_PER_PAGE));
 
   if (loading) return <div className="loading-indicator">Loading tasks...</div>;
   if (error) return <div className="error-message">{error}</div>;

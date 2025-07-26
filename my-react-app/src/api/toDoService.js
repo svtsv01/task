@@ -18,17 +18,14 @@ export const fetchTodosByUserId = async (userId, limit = 10, skip = 0) => {
 };
 
 export const addTodo = async (todoText, userId) => {
-  const response = await fetch(`${API_BASE_URL}/todos/add`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      todo: todoText,
-      completed: false,
-      userId: userId,
-    })
-  });
-  if (!response.ok) throw new Error("Failed to add todo.");
-  return await response.json();
+  const randomId = Math.floor(Math.random() * 850) + 151;
+  const newTodo = {
+    id: randomId,
+    todo: todoText,
+    completed: false,
+    userId: userId,
+  };
+  return Promise.resolve(newTodo);
 };
 
 export const updateTodoStatus = async (todoId, completed) => {
