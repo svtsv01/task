@@ -5,6 +5,8 @@ beforeEach(() => {
   global.fetch = vi.fn();
 });
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 describe('Auth Service', () => {
 
   describe('loginUser', () => {
@@ -19,7 +21,7 @@ describe('Auth Service', () => {
 
       const result = await loginUser('testuser', 'password');
 
-      expect(fetch).toHaveBeenCalledWith('https://dummyjson.com/auth/login', expect.any(Object));
+      expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/auth/login`, expect.any(Object));
       expect(result).toEqual(mockUserData);
     });
 
@@ -45,7 +47,7 @@ describe('Auth Service', () => {
 
       const result = await registerUser(newUser);
 
-      expect(fetch).toHaveBeenCalledWith('https://dummyjson.com/users/add', expect.any(Object));
+      expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users/add`, expect.any(Object));
       expect(result).toEqual(mockResponse);
     });
 
