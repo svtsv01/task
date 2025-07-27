@@ -6,12 +6,12 @@ import {
   deleteTodo,
 } from '../src/api/toDoService'; 
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 beforeEach(() => {
   global.fetch = vi.fn();
 });
 
 describe('Todo Service', () => {
-
 
   describe('fetchTodosByUserId', () => {
     it('should fetch and paginate todos for a user', async () => {
@@ -25,8 +25,7 @@ describe('Todo Service', () => {
       });
 
       const result = await fetchTodosByUserId(5, 10, 0);
-
-      expect(fetch).toHaveBeenCalledWith('https://dummyjson.com/users/5/todos');
+      expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users/5/todos`);
       expect(result.todos.length).toBe(10);
       expect(result.todos[0].id).toBe(1);
       expect(result.total).toBe(20);
@@ -37,7 +36,6 @@ describe('Todo Service', () => {
     });
   });
 
- 
   describe('addTodo', () => {
     it('should resolve with a new todo object with a random ID', async () => {
       const result = await addTodo('A new task', 5);
@@ -60,14 +58,13 @@ describe('Todo Service', () => {
 
       await updateTodoStatus(1, true);
 
-      expect(fetch).toHaveBeenCalledWith('https://dummyjson.com/todos/1', {
+      expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/todos/1`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: true }),
       });
     });
   });
-
 
   describe('deleteTodo', () => {
     it('should call the delete endpoint', async () => {
@@ -79,7 +76,7 @@ describe('Todo Service', () => {
 
       await deleteTodo(1);
 
-      expect(fetch).toHaveBeenCalledWith('https://dummyjson.com/todos/1', {
+      expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/todos/1`, {
         method: 'DELETE',
       });
     });
