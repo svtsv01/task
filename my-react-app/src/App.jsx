@@ -1,38 +1,39 @@
-
 import React from 'react';
-import { 
-  createBrowserRouter, 
+import {
+  createBrowserRouter,
   RouterProvider,
-  Navigate
+  Navigate,
 } from 'react-router-dom';
 import SignInScreen from './pages/SignInScreen';
 import SignUpScreen from './pages/SignupScreen';
 import MainScreen from './pages/MainScreen';
-
+import { TodoProvider } from './context/TodoContext';
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('authToken');
   if (!token) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to='/login' replace />;
   }
   return children;
 };
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: (
       <ProtectedRoute>
-        <MainScreen />
+        <TodoProvider>
+          <MainScreen />
+        </TodoProvider>
       </ProtectedRoute>
     ),
   },
   {
-    path: "/login",
+    path: '/login',
     element: <SignInScreen />,
   },
   {
-    path: "/signup",
+    path: '/signup',
     element: <SignUpScreen />,
   },
 ]);

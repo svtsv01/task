@@ -4,14 +4,15 @@ import { Mail, Lock } from 'lucide-react';
 import AuthForm from '../components/Auth/AuthForm';
 import AuthInput from '../components/Auth/AuthInput';
 import { loginUser } from '../api/authService';
+import { TEST_DATA } from '../constants';
 
 const SignInScreen = () => {
-  const [username, setUsername] = useState('emilys');
-  const [password, setPassword] = useState('emilyspass');
+  const [username, setUsername] = useState(TEST_DATA.DEFAULT_USERNAME);
+  const [password, setPassword] = useState(TEST_DATA.DEFAULT_PASSWORD);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
- 
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
@@ -32,9 +33,9 @@ const SignInScreen = () => {
 
   return (
     <AuthForm
-      title="Sign In"
+      title='Sign In'
       onSubmit={handleLogin}
-      buttonText="Sign In"
+      buttonText='Sign In'
       loading={loading}
       error={error}
       linkText="Don't have an account?"
@@ -43,16 +44,16 @@ const SignInScreen = () => {
     >
       <AuthInput
         Icon={Mail}
-        type="text"
-        placeholder="Username"
+        type='text'
+        placeholder='Username'
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         required
       />
       <AuthInput
         Icon={Lock}
-        type="password"
-        placeholder="Password"
+        type='password'
+        placeholder='Password'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ICON_SIZES } from '../../constants';
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const handlePrevious = () => {
@@ -15,9 +16,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   };
 
   return (
-    <div className="pagination-controls">
+    <div className='pagination-controls'>
       <button onClick={handlePrevious} disabled={currentPage === 1}>
-        <ArrowLeft size={16} />
+        <ArrowLeft size={ICON_SIZES.MEDIUM} />
         Previous
       </button>
       <span>
@@ -25,7 +26,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       </span>
       <button onClick={handleNext} disabled={currentPage === totalPages}>
         Next
-        <ArrowRight size={16} />
+        <ArrowRight size={ICON_SIZES.MEDIUM} />
       </button>
     </div>
   );
