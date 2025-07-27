@@ -5,15 +5,14 @@ import Pagination from './Pagination';
 import AddTodoForm from './AddTodoForm';
 import SortControls from './SortControls';
 import StatisticsWidget from './StatisticsWidget';
+import { TODOS_PER_PAGE, API_ID_THRESHOLD, SORT_MODES } from '../../constants';
 
 const TodoList = () => {
   const [allTodos, setAllTodos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortBy, setSortBy] = useState('id');
-  const TODOS_PER_PAGE = 10;
+  const [sortBy, setSortBy] = useState(SORT_MODES.DEFAULT);
 
   const userId = useMemo(() => {
     const userString = localStorage.getItem('user');
@@ -44,24 +43,21 @@ const TodoList = () => {
     if (!userId) return;
     try {
       const newTodo = await addTodo(todoText, userId);
-      setAllTodos(prevTodos => {
-        const updatedTodos = [newTodo, ...prevTodos];
-        return updatedTodos;
-      });
+      setAllTodos(prevTodos => [newTodo, ...prevTodos]);
     } catch (err) {
       setError("Failed to add task. Please try again.");
     }
   };
 
-
   const handleToggleComplete = async (todoId, currentStatus) => {
-    if (todoId > 150) {
+    if (todoId > API_ID_THRESHOLD) {
       setAllTodos(prevTodos =>
         prevTodos.map(todo =>
           todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
         )
-      );return; }
-    
+      );
+      return; 
+    }
     try {
       await updateTodoStatus(todoId, !currentStatus);
       setAllTodos(prevTodos =>
@@ -75,23 +71,20 @@ const TodoList = () => {
   };
 
   const handleDeleteTodo = async (todoId) => {
-    
-    if (todoId > 150) {
+    if (todoId > API_ID_THRESHOLD) {
       setAllTodos(prevTodos => prevTodos.filter(todo => todo.id !== todoId));
-      return; 
+      return;
     }
-    
     try {
       await deleteTodo(todoId);
       setAllTodos(prevTodos => prevTodos.filter(todo => todo.id !== todoId));
-    } catch (err) {
-      setError("Failed to delete task. Please try again.");
+    } catch (err)      {setError("Failed to delete task. Please try again.");
     }
   };
 
   const sortedTodos = useMemo(() => {
     return [...allTodos].sort((a, b) => {
-      if (sortBy === 'alpha') {
+      if (sortBy === SORT_MODES.ALPHA) {
         return a.todo.localeCompare(b.todo);
       }
       return a.id - b.id; 
@@ -115,6 +108,7 @@ const TodoList = () => {
       <AddTodoForm onAddTodo={handleAddTodo} />
       <SortControls sortBy={sortBy} onSortChange={setSortBy} />
       
+      
       <h2 className="todo-section-header">Pending Tasks</h2>
       <div className="todo-grid">
         {pendingTodos.length > 0 ? (
@@ -129,9 +123,9 @@ const TodoList = () => {
         ) : <p>No pending tasks on this page.</p>}
       </div>
       
-      <h2 className="todo-section-header"> Completed Tasks</h2>
+      <h2 className="todo-section-header">Completed Tasks</h2>
       <div className="todo-grid">
-         {completedTodos.length > 0 ? (
+        {completedTodos.length > 0 ? (
           completedTodos.map((todo) => (
             <TodoItem
               key={todo.id}
@@ -144,10 +138,11 @@ const TodoList = () => {
       </div>
 
       <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
-
-      <StatisticsWidget todos={allTodos} /> 
+      <StatisticsWidget todos={allTodos} />
     </div>
   );
 };
 
 export default TodoList;
+
+
