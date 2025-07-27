@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import TodoList from '../components/ToDo/TodoList';
+import TodoList from '../components/ToDo/ToDoList/TodoList';
 import '../styles/Main.css';
 
 const MainScreen = () => {
