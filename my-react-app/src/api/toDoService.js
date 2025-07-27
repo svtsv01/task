@@ -29,7 +29,7 @@ export const addTodo = async (todoText, userId) => {
 };
 
 export const updateTodoStatus = async (todoId, completed) => {
-  const response = await fetch(`https://dummyjson.com/todos/${todoId}`, {
+  const response = await fetch(`${API_BASE_URL}/todos/${todoId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ completed }),
@@ -39,7 +39,7 @@ export const updateTodoStatus = async (todoId, completed) => {
 };
 
 export const deleteTodo = async (todoId) => {
-  const response = await fetch(`https://dummyjson.com/todos/${todoId}`, {
+  const response = await fetch(`${API_BASE_URL}/todos/${todoId}`, {
     method: 'DELETE',
   });
   if (!response.ok) throw new Error("Failed to delete todo.");

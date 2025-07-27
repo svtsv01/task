@@ -26,8 +26,6 @@ describe('Todo Service', () => {
       });
 
       const result = await fetchTodosByUserId(5, 10, 0);
-
-      // Use the environment variable to build the expected URL
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users/5/todos`);
       expect(result.todos.length).toBe(10);
       expect(result.todos[0].id).toBe(1);
@@ -60,8 +58,6 @@ describe('Todo Service', () => {
       });
 
       await updateTodoStatus(1, true);
-
-      // Use the environment variable to build the expected URL
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/todos/1`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -79,8 +75,6 @@ describe('Todo Service', () => {
       });
 
       await deleteTodo(1);
-
-      // Use the environment variable to build the expected URL
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/todos/1`, {
         method: 'DELETE',
       });
