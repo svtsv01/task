@@ -1,32 +1,29 @@
 import React from 'react';
-import { CheckCircle, XCircle, Trash2, Undo2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
+import { getTodoStatusConfig } from './todoConfig';
 import '../../../styles/Main.css';
 
 const TodoItem = ({ todo, onToggleComplete, onDelete }) => {
-  const cardClass = todo.completed ? 'todo-card completed' : 'todo-card';
+  const config = getTodoStatusConfig(todo.completed);
 
   return (
-    <div className={cardClass}>
-      <p className="todo-text">{todo.todo}</p>
-      <div className="todo-card-footer">
-        <div className="todo-status">
-          {todo.completed ? (
-            <CheckCircle size={20} className="status-icon-completed" />
-          ) : (
-            <XCircle size={20} className="status-icon-pending" />
-          )}
-          <span>{todo.completed ? 'Completed' : 'Pending'}</span>
+    <div className={config.cardClass}>
+      <p className='todo-text'>{todo.todo}</p>
+      <div className='todo-card-footer'>
+        <div className='todo-status'>
+          {config.icon}
+          <span>{config.text}</span>
         </div>
 
-        <div className="todo-actions">
+        <div className='todo-actions'>
           <button
-            className="action-button"
+            className='action-button'
             onClick={() => onToggleComplete(todo.id, todo.completed)}
           >
-            {todo.completed ? <Undo2 size={16} /> : <CheckCircle size={16} />}
+            {config.toggleIcon}
           </button>
           <button
-            className="action-button delete"
+            className='action-button delete'
             onClick={() => onDelete(todo.id)}
           >
             <Trash2 size={16} />

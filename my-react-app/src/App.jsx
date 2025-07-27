@@ -5,9 +5,9 @@ import {
   RouterProvider,
   Navigate
 } from 'react-router-dom';
-import SignInScreen from './screens/SignInScreen';
-import SignUpScreen from './screens/SignupScreen';
-import MainScreen from './screens/MainScreen';
+import SignInScreen from './pages/SignInScreen';
+import SignUpScreen from './pages/SignupScreen';
+import MainScreen from './pages/MainScreen';
 
 
 const ProtectedRoute = ({ children }) => {

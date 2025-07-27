@@ -17,7 +17,7 @@ const AuthForm = ({
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={onSubmit}>
-        <img src={logo} alt="UrbanFixer Logo" className="auth-logo" />
+        <img src="/assets/logo.png" alt="Logo" className="auth-logo"/>
         <h1 className="auth-title">{title}</h1>
         
         {children}
