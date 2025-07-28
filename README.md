@@ -2,7 +2,7 @@
 
 A modern, responsive todo application built with React. This app helps you manage your tasks with a beautiful dark theme interface, real-time statistics, and mobile-friendly design.
 
-> 📖 **For detailed technical implementation, architecture patterns, and development guidelines, see [DOCUMENTATION.md](./DOCUMENTATION.md)**
+>**Deployed at: http://my-cool-todo-app.s3-website-ap-southeast-2.amazonaws.com**
 
 ## Technology Stack
 
@@ -143,7 +143,7 @@ The app is deployed to AWS S3 with static website hosting enabled. This provides
 
 ### Deployment Link
 
-**Live Application**: 
+**Live Application**: http://my-cool-todo-app.s3-website-ap-southeast-2.amazonaws.com**
 
 ## Features in Detail
 
@@ -164,3 +164,4 @@ The app is deployed to AWS S3 with static website hosting enabled. This provides
 - Smooth animations and transitions
 - Keyboard shortcuts for power users
 - Accessibility features
+
