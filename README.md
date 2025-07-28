@@ -54,7 +54,7 @@ my-react-app/
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/svtsv01/task
    cd task/my-react-app
    ```
 
