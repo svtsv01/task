@@ -2,6 +2,8 @@
 
 A modern, responsive todo application built with React. This app helps you manage your tasks with a beautiful dark theme interface, real-time statistics, and mobile-friendly design.
 
+> 📖 **For detailed technical implementation, architecture patterns, and development guidelines, see [DOCUMENTATION.md](./DOCUMENTATION.md)**
+
 ## Technology Stack
 
 I chose **Vite + React** for this project because of its lightning-fast development experience and excellent build performance. While I'm aware of Next.js and its benefits, Vite was the perfect choice for this client-side todo app due to its simplicity and speed.
@@ -61,13 +63,45 @@ my-react-app/
    npm install
    ```
 
-3. **Start the development server**
+3. **Set up environment variables**
+   ```bash
+   # Copy the example environment file
+   cp .env.example .env
+   
+   # Edit the .env file with your configuration
+   # The .env file is already in .gitignore for security
+   ```
+
+4. **Start the development server**
    ```bash
    npm run dev
    ```
 
-4. **Open your browser**
+5. **Open your browser**
    Navigate to `http://localhost:5173` to see the app in action!
+
+### Environment Variables
+
+The application uses environment variables for configuration. Create a `.env` file in the root directory (it's already included in `.gitignore` for security):
+
+```bash
+# API Configuration
+VITE_API_BASE_URL=https://dummyjson.com
+
+# Application Settings
+VITE_APP_NAME=Todo App
+VITE_APP_VERSION=1.0.0
+
+# Feature Flags
+VITE_ENABLE_DEBUG=true
+VITE_ENABLE_ANALYTICS=false
+```
+
+**Important Notes:**
+- The `.env` file is **automatically ignored by Git** for security
+- Use `.env.example` as a template for required environment variables
+- All environment variables must be prefixed with `VITE_` to be accessible in the React app
+- Never commit sensitive information like API keys or passwords
 
 ### Available Scripts
 
@@ -106,7 +140,6 @@ The app is deployed to AWS S3 with static website hosting enabled. This provides
 - **Fast Loading** - CDN distribution for global performance
 - **Cost Effective** - Pay only for storage and data transfer
 - **Scalable** - Handles traffic spikes automatically
-- **Secure** - HTTPS enabled with proper security headers
 
 ### Deployment Link
 
