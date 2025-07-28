@@ -107,7 +107,6 @@ const TodoItem = ({ task, onChangeStatus, onDelete, onEdit }) => {
             {config.toggleIcon}
           </button>
 
-          {/* Кнопка редактирования */}
           <button
             className='action-button edit'
             onClick={() => setIsEditing(true)}
@@ -117,7 +116,6 @@ const TodoItem = ({ task, onChangeStatus, onDelete, onEdit }) => {
             <Edit3 size={ICON_SIZES.MEDIUM} />
           </button>
 
-          {/* Кнопка удаления - доступна для всех статусов */}
           <button
             className='action-button delete'
             onClick={() => onDelete(task.id)}

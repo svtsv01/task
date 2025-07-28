@@ -1,4 +1,4 @@
-const API_BASE_URL = `https://dummyjson.com`;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || `https://dummyjson.com`;
 
 export const fetchTodosByUserId = async (userId, limit = 10, skip = 0) => {
   if (!userId) {
