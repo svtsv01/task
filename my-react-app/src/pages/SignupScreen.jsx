@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { User, Mail, Lock } from 'lucide-react';
+import { User, Mail, Lock, Eye, EyeOff} from 'lucide-react';
 import AuthForm from '../components/Auth/AuthForm';
 import AuthInput from '../components/Auth/AuthInput';
 import { registerUser } from '../api/authService';
@@ -14,7 +14,8 @@ const SignUpScreen = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
+  
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError('');
@@ -71,19 +72,23 @@ const SignUpScreen = () => {
       />
       <AuthInput
         Icon={Lock}
-        type="password"
+         type={showPassword ? 'text' : 'password'}
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
+        ToggleIcon={showPassword ? EyeOff : Eye}
+        onToggleVisibility={() => setShowPassword(!showPassword)}
       />
       <AuthInput
         Icon={Lock}
-        type="password"
+         type={showPassword ? 'text' : 'password'}
         placeholder="Confirm Password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         required
+        ToggleIcon={showPassword ? EyeOff : Eye}
+        onToggleVisibility={() => setShowPassword(!showPassword)}
       />
     </AuthForm>
   );

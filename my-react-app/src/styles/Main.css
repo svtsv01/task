@@ -637,3 +637,24 @@
     padding: 0.25rem;
   }
 }
+
+.toggle-visibility-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  padding: 0.5rem;
+}
+
+.toggle-visibility-button:hover {
+  color: var(--color-text-primary);
+}
+
+
+.auth-input {
+  padding-right: 3rem; 
+}
