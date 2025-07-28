@@ -21,6 +21,10 @@ jobs:
         working-directory: ./my-react-app
         run: echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" > .env
         
+      - name: Verify .env file content
+        working-directory: ./my-react-app
+        run: cat .env
+        
       - name: Install dependencies
         working-directory: ./my-react-app
         run: npm install
