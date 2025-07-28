@@ -1,5 +1,11 @@
+// Todo service for managing todo items (CRUD operations)
+// Handles fetching, creating, updating, and deleting todos
+
+// Base URL for API calls - can be configured via environment variables
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || `https://dummyjson.com`;
 
+// Fetch todos for a specific user with pagination support
+// Returns paginated todos and total count
 export const fetchTodosByUserId = async (userId, limit = 10, skip = 0) => {
   if (!userId) {
     throw new Error("User ID is required to fetch todos.");
@@ -10,6 +16,7 @@ export const fetchTodosByUserId = async (userId, limit = 10, skip = 0) => {
   if (!response.ok) {
     throw new Error(data.message || 'Failed to fetch todos.');
   }
+  // Apply pagination to the fetched todos
   const paginatedTodos = data.todos.slice(skip, skip + limit);
   return {
     todos: paginatedTodos,
@@ -17,6 +24,8 @@ export const fetchTodosByUserId = async (userId, limit = 10, skip = 0) => {
   };
 };
 
+// Create a new todo item
+// Generates a random ID above the threshold to avoid conflicts
 export const addTodo = async (todoText, userId) => {
   const randomId = Math.floor(Math.random() * 850) + 151;
   const newTodo = {
@@ -28,6 +37,8 @@ export const addTodo = async (todoText, userId) => {
   return Promise.resolve(newTodo);
 };
 
+// Update the completion status of a todo item
+// Toggles between completed and pending states
 export const updateTodoStatus = async (todoId, completed) => {
   const response = await fetch(`${API_BASE_URL}/todos/${todoId}`, {
     method: 'PUT',
@@ -38,6 +49,8 @@ export const updateTodoStatus = async (todoId, completed) => {
   return await response.json();
 };
 
+// Delete a todo item from the system
+// Removes the todo permanently
 export const deleteTodo = async (todoId) => {
   const response = await fetch(`${API_BASE_URL}/todos/${todoId}`, {
     method: 'DELETE',

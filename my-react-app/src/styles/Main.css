@@ -1,30 +1,35 @@
+/* Main application layout - flexbox column structure */
 .main-layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh;                    /* Full viewport height */
 }
 
+/* Application header with navigation and controls */
 .app-header {
-  background-color: var(--dark-card);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--dark-card);   /* Dark card background */
+  padding: 1rem 2rem;                   /* Horizontal and vertical padding */
+  display: flex;                        /* Flexbox layout */
+  justify-content: space-between;       /* Space between logo and controls */
+  align-items: center;                  /* Vertical center alignment */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
 }
 
+/* Header controls container (mobile menu and logout) */
 .header-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  display: flex;                        /* Flexbox layout */
+  align-items: center;                  /* Vertical center alignment */
+  gap: 1rem;                           /* Space between elements */
 }
 
+/* Hide mobile menu on desktop screens */
 @media (min-width: 769px) {
   .header-controls .mobile-menu {
     display: none;
   }
 }
 
+/* Show mobile menu on tablet and mobile screens */
 @media (max-width: 768px) {
   .header-controls .mobile-menu {
     display: block;
@@ -32,70 +37,79 @@
   }
 
   .header-controls .mobile-menu-toggle {
-    padding: 0.25rem;
+    padding: 0.25rem;                   /* Smaller padding for mobile */
   }
 }
 
+/* Header logo/brand text styling */
 .header-logo {
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-weight: bold;                    /* Bold font weight */
+  font-size: 1.5rem;                   /* Large font size */
 }
 
+/* Logout button styling */
 .logout-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 6px;
-  background-color: var(--primary-blue);
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
+  padding: 0.5rem 1rem;                /* Vertical and horizontal padding */
+  border: none;                        /* No border */
+  border-radius: 6px;                  /* Rounded corners */
+  background-color: var(--primary-blue); /* Primary blue background */
+  color: white;                        /* White text */
+  font-weight: 500;                    /* Medium font weight */
+  cursor: pointer;                     /* Pointer cursor */
 }
 
+/* Logout button hover state */
 .logout-button:hover {
-  background-color: #2563eb;
+  background-color: #2563eb;           /* Darker blue on hover */
 }
 
+/* Main content area */
 .app-content {
-  flex-grow: 1;
-  padding: 2rem;
-  text-align: center;
+  flex-grow: 1;                        /* Take remaining space */
+  padding: 2rem;                       /* Internal padding */
+  text-align: center;                  /* Center align content */
 }
 
+/* Application footer */
 .app-footer {
-  background-color: var(--dark-card);
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.875rem;
-  color: var(--gray-text);
+  background-color: var(--dark-card);   /* Dark card background */
+  padding: 1rem;                       /* Internal padding */
+  text-align: center;                  /* Center align text */
+  font-size: 0.875rem;                 /* Smaller font size */
+  color: var(--gray-text);             /* Muted text color */
 }
 
+/* Todo list container with max width constraint */
 .todo-list-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;                         /* Full width */
+  max-width: 1200px;                   /* Maximum width */
+  margin: 0 auto;                      /* Center horizontally */
 }
 
+/* Grid layout for todo cards */
 .todo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  display: grid;                       /* CSS Grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));  /* Responsive columns */
+  gap: 1.5rem;                        /* Space between cards */
+  margin-bottom: 2rem;                /* Bottom margin */
 }
 
+/* Individual todo card styling */
 .todo-card {
-  background-color: var(--dark-card);
-  border-radius: 12px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-left: 5px solid #f59e0b;
-  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: var(--dark-card);   /* Dark card background */
+  border-radius: 12px;                 /* Rounded corners */
+  padding: 1.5rem;                     /* Internal padding */
+  display: flex;                       /* Flexbox layout */
+  flex-direction: column;              /* Vertical stacking */
+  justify-content: space-between;      /* Space content evenly */
+  border-left: 5px solid #f59e0b;      /* Orange left border for pending status */
+  transition: transform 0.2s, box-shadow 0.2s;  /* Smooth transitions */
 }
 
+/* Todo card hover effect */
 .todo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);         /* Lift card slightly */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);  /* Enhanced shadow */
 }
 
 .todo-card.completed {

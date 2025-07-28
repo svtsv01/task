@@ -1,151 +1,172 @@
+/* Authentication page container - centers the form on the screen */
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 2rem;
+  min-height: 100vh;          /* Full viewport height */
+  padding: 2rem;              /* Add padding around the form */
 }
 
+/* Main authentication form styling */
 .auth-form {
-  background-color: var(--dark-card);
-  padding: 2.5rem;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  background-color: var(--dark-card);   /* Dark card background */
+  padding: 2.5rem;                      /* Internal padding */
+  border-radius: 12px;                  /* Rounded corners */
+  width: 100%;                          /* Full width */
+  max-width: 400px;                     /* Maximum width constraint */
+  text-align: center;                   /* Center align content */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);  /* Subtle shadow */
 }
 
+/* Application logo styling */
 .auth-logo {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 0.25rem;
+  width: 150px;                         /* Logo width */
+  height: 150px;                        /* Logo height */
+  margin: 0 auto 0.25rem;               /* Center horizontally with bottom margin */
 }
 
+/* Form title styling */
 .auth-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
+  font-size: 1.75rem;                   /* Large title font */
+  font-weight: 600;                     /* Semi-bold weight */
+  margin-bottom: 2rem;                  /* Bottom spacing */
 }
 
+/* Input field container with relative positioning for icons */
 .input-group {
-  position: relative;
-  margin-bottom: 1.25rem;
+  position: relative;                   /* For absolute positioned icons */
+  margin-bottom: 1.25rem;              /* Bottom spacing between inputs */
 }
 
+/* Input field icon styling */
 .input-icon {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--gray-text);
-  pointer-events: none;
+  position: absolute;                   /* Position over the input */
+  left: 1rem;                          /* Left offset */
+  top: 50%;                            /* Vertical center */
+  transform: translateY(-50%);          /* Perfect vertical centering */
+  color: var(--gray-text);             /* Muted icon color */
+  pointer-events: none;                /* Don't interfere with input */
 }
 
+/* Main input field styling */
 .auth-input {
-  width: 100%;
-  padding: 0.75rem 1rem 0.75rem 3rem;
-  background-color: var(--dark-bg);
-  border: 1px solid #4b5563;
-  border-radius: 8px;
-  color: var(--light-text);
-  font-size: 1rem;
-  transition: border-color 0.2s;
+  width: 100%;                         /* Full width */
+  padding: 0.75rem 1rem 0.75rem 3rem;  /* Left padding for icon */
+  background-color: var(--dark-bg);    /* Dark background */
+  border: 1px solid #4b5563;           /* Border color */
+  border-radius: 8px;                  /* Rounded corners */
+  color: var(--light-text);            /* Light text color */
+  font-size: 1rem;                     /* Standard font size */
+  transition: border-color 0.2s;       /* Smooth border transition */
 }
 
+/* Input focus state */
 .auth-input:focus {
-  outline: none;
-  border-color: var(--primary-blue);
+  outline: none;                        /* Remove default outline */
+  border-color: var(--primary-blue);   /* Blue border on focus */
 }
 
+/* Submit button styling */
 .auth-button {
-  width: 100%;
-  padding: 0.85rem;
-  border: none;
-  border-radius: 8px;
-  background-color: var(--primary-blue);
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-top: 1rem;
+  width: 100%;                         /* Full width */
+  padding: 0.85rem;                    /* Vertical padding */
+  border: none;                        /* No border */
+  border-radius: 8px;                  /* Rounded corners */
+  background-color: var(--primary-blue); /* Primary blue background */
+  color: white;                        /* White text */
+  font-size: 1rem;                     /* Standard font size */
+  font-weight: 600;                    /* Semi-bold weight */
+  cursor: pointer;                     /* Pointer cursor */
+  transition: background-color 0.2s;   /* Smooth background transition */
+  margin-top: 1rem;                    /* Top spacing */
 }
 
+/* Button hover state */
 .auth-button:hover {
-  background-color: #2563eb;
+  background-color: #2563eb;           /* Darker blue on hover */
 }
 
+/* Button disabled state */
 .auth-button:disabled {
-  background-color: #60a5fa;
-  cursor: not-allowed;
+  background-color: #60a5fa;           /* Lighter blue when disabled */
+  cursor: not-allowed;                 /* Not allowed cursor */
 }
 
+/* Navigation link styling */
 .auth-link {
-  margin-top: 1.5rem;
-  color: var(--white-text);
+  margin-top: 1.5rem;                  /* Top spacing */
+  color: var(--white-text);            /* Light text color */
 }
 
+/* Link styling */
 .auth-link a {
-  color: var(--primary-blue);
-  text-decoration: none;
-  font-weight: 500;
+  color: var(--primary-blue);          /* Blue link color */
+  text-decoration: none;               /* No underline */
+  font-weight: 500;                    /* Medium weight */
 }
 
+/* Link hover state */
 .auth-link a:hover {
-  text-decoration: underline;
+  text-decoration: underline;          /* Underline on hover */
 }
 
+/* Error message styling */
 .error-message {
-    color: #f87171;
-    margin-top: 1rem; 
-    margin-bottom: 0; 
-    font-size: 0.875rem;
+    color: #f87171;                    /* Red error color */
+    margin-top: 1rem;                  /* Top spacing */
+    margin-bottom: 0;                  /* No bottom margin */
+    font-size: 0.875rem;               /* Smaller font size */
 }
 
+/* Divider line with "or" text */
 .or-divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: var(--white-text);
-    margin: 1.5rem 0;
+    display: flex;                     /* Flexbox for alignment */
+    align-items: center;               /* Vertical center */
+    text-align: center;                /* Center text */
+    color: var(--white-text);          /* Light text color */
+    margin: 1.5rem 0;                  /* Vertical spacing */
 }
 
+/* Divider line before "or" text */
 .or-divider::before,
 .or-divider::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid white;
+    content: '';                       /* Empty content */
+    flex: 1;                          /* Take remaining space */
+    border-bottom: 1px solid white;    /* White line */
 }
 
+/* Spacing around "or" text */
 .or-divider:not(:empty)::before {
-    margin-right: .5em;
+    margin-right: .5em;                /* Right spacing */
 }
 
 .or-divider:not(:empty)::after {
-    margin-left: .5em;
+    margin-left: .5em;                 /* Left spacing */
 }
 
+/* Social login buttons container */
 .social-login-container {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
+    display: flex;                     /* Flexbox layout */
+    justify-content: center;           /* Center horizontally */
+    gap: 1.5rem;                      /* Space between buttons */
 }
 
+/* Individual social login button */
 .social-icon {
-    width: 50px;
-    height: 50px;
-    border: 1px solid white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
-    color: var(--white-text);
+    width: 50px;                       /* Fixed width */
+    height: 50px;                      /* Fixed height */
+    border: 1px solid white;           /* White border */
+    border-radius: 50%;                /* Circular shape */
+    display: flex;                     /* Flexbox for centering */
+    justify-content: center;           /* Horizontal center */
+    align-items: center;               /* Vertical center */
+    cursor: pointer;                   /* Pointer cursor */
+    transition: background-color 0.2s, color 0.2s;  /* Smooth transitions */
+    color: var(--white-text);          /* Light text color */
 }
 
+/* Social button hover state */
 .social-icon:hover {
-    background-color: #4b5563;
-    color: var(--light-text);
+    background-color: #4b5563;         /* Dark background on hover */
+    color: var(--light-text);          /* Light text on hover */
 }
