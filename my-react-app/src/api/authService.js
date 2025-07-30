@@ -2,7 +2,7 @@
 // Uses the DummyJSON API for demo purposes
 
 // Base URL for API calls - can be configured via environment variables
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || `https://dummyjson.com`;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Authenticate user with username and password
 // Returns user data and authentication token on success

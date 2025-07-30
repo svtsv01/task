@@ -2,7 +2,7 @@
 // Handles fetching, creating, updating, and deleting todos
 
 // Base URL for API calls - can be configured via environment variables
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || `https://dummyjson.com`;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Fetch todos for a specific user with pagination support
 // Returns paginated todos and total count
