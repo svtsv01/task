@@ -54,7 +54,7 @@ my-react-app/
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/svtsv01/task
    cd task/my-react-app
    ```
 
@@ -87,14 +87,6 @@ The application uses environment variables for configuration. Create a `.env` fi
 ```bash
 # API Configuration
 VITE_API_BASE_URL=https://dummyjson.com
-
-# Application Settings
-VITE_APP_NAME=Todo App
-VITE_APP_VERSION=1.0.0
-
-# Feature Flags
-VITE_ENABLE_DEBUG=true
-VITE_ENABLE_ANALYTICS=false
 ```
 
 **Important Notes:**
